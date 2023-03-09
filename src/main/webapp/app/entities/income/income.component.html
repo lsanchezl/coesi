@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.income.home.title">Incomes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-income" [routerLink]="['/income/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coesiApp.income.home.createLabel">
+            Create a new Income
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="incomes?.length === 0">
+        <span jhiTranslate="coesiApp.income.home.notFound">No incomes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="incomes && incomes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.amount">Amount</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.comments">Comments</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.applicationDate">Application Date</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.creationDate">Creation Date</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.modificationDate">Modification Date</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.user">User</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.creationUser">Creation User</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.modificationUser">Modification User</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.income.conceptIncome">Concept Income</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let income of incomes ;trackBy: trackId">
+                    <td>{{ income.id }}</td>
+                    <td>{{ income.amount }}</td>
+                    <td>{{ income.comments }}</td>
+                    <td>{{ income.applicationDate | date:'mediumDate' }}</td>
+                    <td>{{ income.creationDate | date:'medium' }}</td>
+                    <td>{{ income.modificationDate | date:'medium' }}</td>
+                    <td>{{ income.user?.lastName }} {{ income.user?.firstName }}</td>
+                    <td>{{ income.creationUser?.lastName }} {{ income.creationUser?.firstName }}</td>
+                    <td>{{ income.modificationUser?.lastName }} {{ income.modificationUser?.firstName }}</td>
+                    <td>{{ income.conceptIncome?.name }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/income', income.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/income', income.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(income)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

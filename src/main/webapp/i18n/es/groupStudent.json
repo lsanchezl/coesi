@@ -1,0 +1,31 @@
+{
+    "coesiApp": {
+        "groupStudent": {
+            "home": {
+                "title": "Alumnos",
+                "createLabel": "Agregar alumno",
+                "createOrEditLabel": "Crear alumno",
+                "scores": "Calificaciones",
+                "registerAttendances": "Asistencia",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo grupo alumno con identificador {{ param }}.",
+            "updated": "Se actualizó el grupo alumno con identificador {{ param }}.",
+            "deleted": "Se borró el grupo alumno con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el grupo alumno {{ id }}?"
+            },
+            "detail": {
+                "title": "Grupo alumno"
+            },
+            "attendance": "Asistencia",
+            "studentEvaluation": "Evaluación",
+            "name": "Nombre",
+            "nGroup": "Grupo",
+            "score": "Calificación",
+            "attendance": "Asistencia",
+            "opportunity1": "Oportunidad 1",
+            "opportunity2": "Oportunidad 2"
+        }
+    }
+}

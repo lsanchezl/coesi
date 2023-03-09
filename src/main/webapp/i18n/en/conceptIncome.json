@@ -1,0 +1,24 @@
+{
+  "coesiApp": {
+    "conceptIncome": {
+      "home": {
+        "title": "Concept Incomes",
+        "createLabel": "Create a new Concept Income",
+        "createOrEditLabel": "Create or edit a Concept Income",
+        "notFound": "No Concept Incomes found"
+      },
+      "created": "A new Concept Income is created with identifier {{ param }}",
+      "updated": "A Concept Income is updated with identifier {{ param }}",
+      "deleted": "A Concept Income is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Concept Income {{ id }}?"
+      },
+      "detail": {
+        "title": "Concept Income"
+      },
+      "name": "Name",
+      "keyConcept": "Key Concept",
+      "income": "Income"
+    }
+  }
+}

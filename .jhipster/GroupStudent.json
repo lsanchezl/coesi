@@ -1,0 +1,45 @@
+{
+  "name": "GroupStudent",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "attendance",
+      "otherEntityRelationshipName": "groupStudent",
+      "relationshipName": "attendance"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "studentEvaluation",
+      "otherEntityRelationshipName": "groupStudent",
+      "relationshipName": "studentEvaluation"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "groupStudent",
+      "relationshipValidateRules": "required",
+      "relationshipName": "student",
+      "otherEntityField": "tuition"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "nGroup",
+      "otherEntityRelationshipName": "groupStudent",
+      "relationshipValidateRules": "required",
+      "relationshipName": "nGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202221058",
+  "entityTableName": "group_student",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

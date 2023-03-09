@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity NGroup.
+    -->
+    <changeSet id="20210202220658-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="school_cycle_id"
+                                 baseTableName="n_group"
+                                 constraintName="fk_n_group_school_cycle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="school_cycle"/>
+
+        <addForeignKeyConstraint baseColumnNames="teacher_id"
+                                 baseTableName="n_group"
+                                 constraintName="fk_n_group_teacher_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="teacher"/>
+
+        <addForeignKeyConstraint baseColumnNames="n_class_id"
+                                 baseTableName="n_group"
+                                 constraintName="fk_n_group_n_class_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="n_class"/>
+
+        <addForeignKeyConstraint baseColumnNames="room_id"
+                                 baseTableName="n_group"
+                                 constraintName="fk_n_group_room_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="room"/>
+
+        <addForeignKeyConstraint baseColumnNames="modality_id"
+                                 baseTableName="n_group"
+                                 constraintName="fk_n_group_modality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="modality"/>
+
+    </changeSet>
+</databaseChangeLog>

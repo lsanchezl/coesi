@@ -1,0 +1,23 @@
+{
+    "coesiApp": {
+        "schoolCycle": {
+            "home": {
+                "title": "Catálogo de ciclos escolares",
+                "createLabel": "Crear nuevo ciclo escolar",
+                "createOrEditLabel": "Crear o editar ciclo escolar",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo ciclo escolar con identificador {{ param }}.",
+            "updated": "Se actualizó el ciclo escolar con identificador {{ param }}.",
+            "deleted": "Se borró el ciclo escolar con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el ciclo escolar {{ id }}?"
+            },
+            "detail": {
+                "title": "Ciclo escolar"
+            },
+            "name": "Nombre",
+            "nGroup": "Grupo"
+        }
+    }
+}

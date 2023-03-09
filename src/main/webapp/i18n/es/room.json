@@ -1,0 +1,23 @@
+{
+    "coesiApp": {
+        "room": {
+            "home": {
+                "title": "Catálogo de aulas",
+                "createLabel": "Crear nueva aula",
+                "createOrEditLabel": "Crear o editar aula",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó una nueva aula con identificador {{ param }}.",
+            "updated": "Se actualizó el aula con identificador {{ param }}.",
+            "deleted": "Se borró el aula con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el aula {{ id }}?"
+            },
+            "detail": {
+                "title": "Aula"
+            },
+            "name": "Nombre",
+            "nGroup": "Grupo"
+        }
+    }
+}

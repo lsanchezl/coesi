@@ -1,0 +1,31 @@
+{
+    "coesiApp": {
+        "groupStudent": {
+            "home": {
+                "title": "Group Students",
+                "createLabel": "Create a new Group Student",
+                "createOrEditLabel": "Create student",
+                "scores": "Scores",
+                "registerAttendances": "To attendace",
+                "notFound": "Ningún Group Students encontrado"
+            },
+            "created": "A new Group Student is created with identifier {{ param }}.",
+            "updated": "A Group Student is updated with identifier {{ param }}.",
+            "deleted": "A Group Student is deleted with identifier {{ param }}.",
+            "delete": {
+                "question": "Are you sure you want to delete Group Student {{ id }}?"
+            },
+            "detail": {
+                "title": "Group Student"
+            },
+            "attendance": "Attendance",
+            "studentEvaluation": "Student Evaluation",
+            "name": "Nombre",
+            "nGroup": "N Group",
+            "score": "Calificación",
+            "attendance": "To attendance",
+            "opportunity1": "Opportunity 1",
+            "opportunity2": "Opportunity 2"
+        }
+    }
+}

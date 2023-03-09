@@ -1,0 +1,84 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.nClass.home.title">N Classes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-n-class"
+                [routerLink]="['/n-class/career', careerId ,'new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coesiApp.nClass.home.createLabel">
+                Create a new N Class
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="nClasses?.length === 0">
+        <span jhiTranslate="coesiApp.nClass.home.notFound">No nClasses found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="nClasses && nClasses.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="name"><span jhiTranslate="coesiApp.nClass.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="keyClass"><span jhiTranslate="coesiApp.nClass.keyClass">Key Class</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="area"><span jhiTranslate="coesiApp.nClass.area">Area</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="division"><span jhiTranslate="coesiApp.nClass.division">Division</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="units"><span jhiTranslate="coesiApp.nClass.units">Units</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nOrder"><span jhiTranslate="coesiApp.nClass.nOrder">N Order</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="career.name"><span jhiTranslate="coesiApp.nClass.career">Career</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let nClass of nClasses ;trackBy: trackId">
+                    <td>{{ nClass.id }}</td>
+                    <td>{{ nClass.name }}</td>
+                    <td>{{ nClass.keyClass }}</td>
+                    <td>{{ nClass.area }}</td>
+                    <td>{{ nClass.division }}</td>
+                    <td>{{ nClass.units }}</td>
+                    <td>{{ nClass.nOrder }}</td>
+                    <td>{{ nClass.career?.name }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/n-class', nClass.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/n-class', nClass.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(nClass)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="nClasses && nClasses.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

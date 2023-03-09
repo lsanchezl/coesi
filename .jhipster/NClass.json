@@ -1,0 +1,73 @@
+{
+  "name": "NClass",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "keyClass",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "area",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "division",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "units",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "nOrder",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "nGroup",
+      "otherEntityRelationshipName": "nClass",
+      "relationshipName": "nGroup"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "career",
+      "otherEntityRelationshipName": "nClass",
+      "relationshipValidateRules": "required",
+      "relationshipName": "career",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220158",
+  "entityTableName": "n_class",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

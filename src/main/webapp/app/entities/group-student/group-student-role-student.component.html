@@ -1,0 +1,60 @@
+<div>
+    <h2 id="heading-evaluation">
+        <span jhiTranslate="coesiApp.groupStudent.score">Score</span>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="table-responsive" id="studentEvaluation" *ngIf="matrixEvaluation">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of matrixEvaluation[2]; let idxHeader = index">
+                        <span *ngIf="idxHeader > 0">
+                            {{header}}
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let rowData of matrixEvaluation | slice: 3; let idxRow=index;">
+                    <td *ngFor="let columnData of rowData; let idxColumn=index;">
+                        <span *ngIf="idxColumn > 0">
+                            {{columnData}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <h2 id="heading-attendance">
+        <span jhiTranslate="coesiApp.groupStudent.attendance">Attendance</span>
+    </h2>
+
+    <div class="table-responsive" id="studentAttendance" *ngIf="headersAttendance">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of headersAttendance; let idxHeader = index">
+                        <span *ngIf="idxHeader > 0">
+                            {{header}}
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of dataAttendance; let idxRow=index;">
+                    <td *ngFor="let column of dataAttendance[idxRow]; let idxColumn=index;">
+                        <span>
+                            {{dataAttendance[idxRow][idxColumn]}}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

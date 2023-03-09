@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity StudentEvaluation.
+    -->
+    <changeSet id="20210202221358-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="group_student_id"
+                                 baseTableName="student_evaluation"
+                                 constraintName="fk_student_evaluation_group_student_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="group_student"/>
+
+        <addForeignKeyConstraint baseColumnNames="status_id"
+                                 baseTableName="student_evaluation"
+                                 constraintName="fk_student_evaluation_status_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="status"/>
+
+        <addForeignKeyConstraint baseColumnNames="evaluation_criteria_id"
+                                 baseTableName="student_evaluation"
+                                 constraintName="fk_student_evaluation_evaluation_criteria_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="evaluation_criteria"/>
+
+    </changeSet>
+</databaseChangeLog>

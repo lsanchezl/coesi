@@ -1,0 +1,87 @@
+{
+  "name": "NGroup",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "startDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "endDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "evaluationCriteria",
+      "otherEntityRelationshipName": "nClass",
+      "relationshipName": "evaluationCriteria"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "groupStudent",
+      "otherEntityRelationshipName": "nGroup",
+      "relationshipName": "groupStudent"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "schoolCycle",
+      "otherEntityRelationshipName": "nGroup",
+      "relationshipValidateRules": "required",
+      "relationshipName": "schoolCycle",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "teacher",
+      "otherEntityRelationshipName": "nGroup",
+      "relationshipValidateRules": "required",
+      "relationshipName": "teacher",
+      "otherEntityField": "tuition"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "nClass",
+      "otherEntityRelationshipName": "nGroup",
+      "relationshipValidateRules": "required",
+      "relationshipName": "nClass",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "room",
+      "otherEntityRelationshipName": "nGroup",
+      "relationshipValidateRules": "required",
+      "relationshipName": "room",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "modality",
+      "otherEntityRelationshipName": "nGroup",
+      "relationshipValidateRules": "required",
+      "relationshipName": "modality",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220658",
+  "entityTableName": "n_group",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,49 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.attendance.home.title">Attendances</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-attendance" 
+                [routerLink]="['/attendance/n-group', nGroupId ,'new']" [disabled]="isSaving" [hidden]="!isEditable">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coesiApp.attendance.home.createLabel">
+                Create a new Attendance
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="table-responsive" id="entities" *ngIf="headers">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of headers; let idxHeader = index">
+                        <span *ngIf="idxHeader > 0">
+                            {{header}}
+                        </span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let row of data; let idxRow=index;">
+                    <td *ngFor="let column of data[idxRow]; let idxColumn=index;">
+                        <span *ngIf="idxColumn === 1">
+                            {{data[idxRow][idxColumn]}}
+                        </span>
+                        <span *ngIf="idxColumn > 1" [hidden]="isEditable">
+                            {{data[idxRow][idxColumn]}}
+                        </span>
+                        <select class="form-control" *ngIf="idxColumn > 1" name="typeAttendance" 
+                                [ngModel]="selectedTA" [hidden]="!isEditable"
+                                (ngModelChange)="changeAttendance($event, idxRow, idxColumn)" [disabled]="isSaving">
+                            <option 
+                                [ngValue]="typeAttendanceOption.name === data[idxRow][idxColumn] ? selectedTA : typeAttendanceOption"
+                                *ngFor="let typeAttendanceOption of typeattendances;">{{ typeAttendanceOption.name }}</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

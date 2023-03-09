@@ -1,0 +1,24 @@
+{
+  "coesiApp": {
+    "typeAttendance": {
+      "home": {
+        "title": "Type Attendances",
+        "createLabel": "Create a new Type Attendance",
+        "createOrEditLabel": "Create or edit a Type Attendance",
+        "notFound": "No Type Attendances found"
+      },
+      "created": "A new Type Attendance is created with identifier {{ param }}.",
+      "updated": "A Type Attendance is updated with identifier {{ param }}.",
+      "deleted": "A Type Attendance is deleted with identifier {{ param }}.",
+      "delete": {
+        "question": "Are you sure you want to delete Type Attendance {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Attendance"
+      },
+      "name": "Name",
+      "description": "Description",
+      "attendance": "Attendance"
+    }
+  }
+}

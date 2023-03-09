@@ -1,0 +1,28 @@
+{
+    "coesiApp": {
+        "statusGroup": {
+            "home": {
+                "title": "Catálogo de estatus de grupos",
+                "createLabel": "Crear nuevo estatus de grupo",
+                "createOrEditLabel": "Crear o editar estatus de grupo",
+                "notFound": "No se encontraron registros"
+            },
+            "created": "Se creó un nuevo estatus de grupo con identificador {{ param }}.",
+            "updated": "Se actualizó el estatus de grupo con identificador {{ param }}.",
+            "deleted": "Se borró el estatus de grupo con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el estatus de grupo {{ id }}?"
+            },
+            "detail": {
+                "title": "Estatus de grupos"
+            },
+            "name": "Nombre",
+            "keyStatus": "Key estatus",
+            "nGroup": "Grupo",
+            "CREATED": "Creado",
+            "IN_PROGRESS": "En progreso",
+            "SENT": "Enviado",
+            "CLOSED": "Cerrado"
+        }
+    }
+}

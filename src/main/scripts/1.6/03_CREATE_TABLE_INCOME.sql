@@ -1,0 +1,21 @@
+CREATE TABLE `income` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `amount` double NOT NULL,
+  `comments` varchar(500),
+  `application_date` date NOT NULL,
+  `creation_date` datetime NOT NULL,
+  `modification_date` datetime NOT NULL,
+  `user_id` bigint NOT NULL,
+  `creation_user_id` bigint NOT NULL,
+  `modification_user_id` bigint NOT NULL,
+  `concept_income_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_income_user_id` (`user_id`),
+  KEY `fk_income_creation_user_id` (`creation_user_id`),
+  KEY `fk_income_modification_user_id` (`modification_user_id`),
+  KEY `fk_income_concept_income_id` (`concept_income_id`),
+  CONSTRAINT `fk_income_user_id` FOREIGN KEY (`user_id`) REFERENCES `jhi_user` (`id`),
+  CONSTRAINT `fk_income_creation_user_id` FOREIGN KEY (`creation_user_id`) REFERENCES `jhi_user` (`id`),
+  CONSTRAINT `fk_income_modification_user_id` FOREIGN KEY (`modification_user_id`) REFERENCES `jhi_user` (`id`),
+  CONSTRAINT `fk_income_concept_income_id` FOREIGN KEY (`concept_income_id`) REFERENCES `concept_income` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;

@@ -1,0 +1,28 @@
+{
+    "coesiApp": {
+        "statusGroup": {
+            "home": {
+                "title": "Status Groups",
+                "createLabel": "Create a new Status Group",
+                "createOrEditLabel": "Create or edit a Status Group",
+                "notFound": "No Status Groups found"
+            },
+            "created": "A new Status Group is created with identifier {{ param }}",
+            "updated": "A Status Group is updated with identifier {{ param }}",
+            "deleted": "A Status Group is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Status Group {{ id }}?"
+            },
+            "detail": {
+                "title": "Status Group"
+            },
+            "name": "Name",
+            "keyStatus": "Key Status",
+            "nGroup": "N Group",
+            "CREATED": "Created",
+            "IN_PROGRESS": "In progress",
+            "SENT": "Sent",
+            "CLOSED": "Closed"
+        }
+    }
+}

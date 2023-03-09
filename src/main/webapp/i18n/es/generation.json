@@ -1,0 +1,23 @@
+{
+    "coesiApp": {
+        "generation": {
+            "home": {
+                "title": "Catálogo de generaciones",
+                "createLabel": "Crear nueva generación",
+                "createOrEditLabel": "Crear o editar generación",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó una nueva generación con identificador {{ param }}.",
+            "updated": "Se actualizó la generación con identificador {{ param }}.",
+            "deleted": "Se borró la generación con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el grupo {{ id }}?"
+            },
+            "detail": {
+                "title": "Generaciones"
+            },
+            "name": "Nombre",
+            "student": "Alumno"
+        }
+    }
+}

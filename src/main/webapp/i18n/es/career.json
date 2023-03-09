@@ -1,0 +1,25 @@
+{
+    "coesiApp": {
+        "career": {
+            "home": {
+                "title": "Catálogo de carreras",
+                "nClass": "Materias",
+                "createLabel": "Crear nueva carrera",
+                "createOrEditLabel": "Crear o editar carrera",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó una nueva carrera con identificador {{ param }}.",
+            "updated": "Se actualizó la carrera con identificador {{ param }}.",
+            "deleted": "Se borró la carrera con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar la carrera {{ id }}?"
+            },
+            "detail": {
+                "title": "Carrera"
+            },
+            "name": "Nombre",
+            "nClass": "Materia",
+            "student": "Alumno"
+        }
+    }
+}

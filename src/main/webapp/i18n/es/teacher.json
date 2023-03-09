@@ -1,0 +1,24 @@
+{
+    "coesiApp": {
+        "teacher": {
+            "home": {
+                "title": "Maestros",
+                "createLabel": "Crear nuevo maestro",
+                "createOrEditLabel": "Crear o editar maestro",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo maestro con identificador {{ param }}.",
+            "updated": "Se actualizó el maestro con identificador {{ param }}.",
+            "deleted": "Se borró el maestro con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el maestro {{ id }}?"
+            },
+            "detail": {
+                "title": "Maestro"
+            },
+            "tuition": "Matrícula",
+            "nGroup": "Grupo",
+            "name": "Nombre"
+        }
+    }
+}

@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-student-heading" jhiTranslate="coesiApp.student.home.createOrEditLabel">Create or edit a Student</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coesiApp.student.tuition" for="field_tuition">Tuition</label>
+                    <input type="text" class="form-control" name="tuition" id="field_tuition"
+                           formControlName="tuition"/>
+                    <div *ngIf="editForm.get('tuition')!.invalid && (editForm.get('tuition')!.dirty || editForm.get('tuition')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tuition')?.errors?.required" jhiTranslate="entity.validation.required">
+                            This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('tuition')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                            This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coesiApp.student.graduationSermon" for="field_graduationSermon">Graduation Sermon</label>
+                    <input type="number" class="form-control" name="graduationSermon" id="field_graduationSermon"
+                           formControlName="graduationSermon"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coesiApp.student.name" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option *ngIf="!editForm.get('user')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+                                *ngFor="let userOption of users; trackBy: trackById">
+                            {{ userOption.lastName }} {{ userOption.firstName }}
+                        </option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('user')!.invalid && (editForm.get('user')!.dirty || editForm.get('user')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('user')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coesiApp.student.generation" for="field_generation">Generation</label>
+                    <select class="form-control" id="field_generation" name="generation" formControlName="generation">
+                        <option [ngValue]="generationOption.id === editForm.get('generation')!.value?.id ? editForm.get('generation')!.value : generationOption" *ngFor="let generationOption of generations; trackBy: trackById">{{ generationOption.name }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('generation')!.invalid && (editForm.get('generation')!.dirty || editForm.get('generation')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('generation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="coesiApp.student.career" for="field_career">Career</label>
+                    <select class="form-control" id="field_career" name="career" formControlName="career">
+                        <option [ngValue]="careerOption.id === editForm.get('career')!.value?.id ? editForm.get('career')!.value : careerOption" *ngFor="let careerOption of careers; trackBy: trackById">{{ careerOption.name }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('career')!.invalid && (editForm.get('career')!.dirty || editForm.get('career')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('career')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

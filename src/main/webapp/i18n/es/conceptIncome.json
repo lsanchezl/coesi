@@ -1,0 +1,24 @@
+{
+    "coesiApp": {
+        "conceptIncome": {
+            "home": {
+                "title": "Catálogo de conceptos de ingresos",
+                "createLabel": "Crear nuevo concepto de ingresos",
+                "createOrEditLabel": "Crear o editar concepto de ingresos",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo concepto de ingresos con identificador {{ param }}.",
+            "updated": "Se actualizó el concepto de ingresos con identificador {{ param }}.",
+            "deleted": "Se borró el concepto de ingresos con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el concepto de ingresos {{ id }}?"
+            },
+            "detail": {
+                "title": "Concepto de ingresos"
+            },
+            "name": "Nombre",
+            "keyConcept": "Key concepto",
+            "income": "Ingreso"
+        }
+    }
+}

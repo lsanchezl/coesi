@@ -1,0 +1,1 @@
+01. Después de alterar la tabla de institutos, asignar el usuario y fecha de creación, antes de ejecutar el script que asigna los not null.

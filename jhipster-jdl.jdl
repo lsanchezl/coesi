@@ -1,0 +1,104 @@
+entity Generation {
+    name String maxlength(100) required
+}
+entity SchoolCycle {
+    name String maxlength(100) required
+}
+entity Student {
+    tuition String maxlength(100) required,
+    graduationSermon Integer
+}
+entity NClass {
+    name String maxlength(100) required,
+    keyClass String maxlength(100),
+    area String maxlength(100),
+    division String maxlength(100),
+    units Double,
+    nOrder Integer
+}	
+entity PerformanceIndicator {
+    name String maxlength(100) required
+}
+entity EvaluationCriteria {
+    description String maxlength(100) required,
+    percentage Double required,
+    deliveryDate LocalDate
+}
+entity Teacher {
+    tuition String maxlength(100) required
+}
+entity Room {
+    name String maxlength(100) required
+}
+entity NGroup {
+    name String maxlength(100) required,
+    startDate LocalDate,
+    endDate LocalDate
+}
+entity TypeAttendance {
+    name String maxlength(100) required,
+    description String maxlength(500) required
+}
+entity Modality {
+    name String maxlength(100) required,
+    description String maxlength(500) required
+}
+entity Status {
+    name String maxlength(100) required,
+    description String maxlength(500) required
+}
+entity GroupStudent {
+}
+entity Attendance {
+    dateAttendance LocalDate
+}
+entity Career {
+    name String maxlength(100) required
+}
+entity StudentEvaluation {
+    score Double required
+}
+
+relationship OneToMany {
+    Generation{student} to Student{generation(name) required},
+    Career{nClass} to NClass{career(name) required},
+    Career{student} to Student{career(name) required},
+    PerformanceIndicator{evaluationCriteria} to EvaluationCriteria{performanceIndicator(name) required},
+    NGroup{evaluationCriteria} to EvaluationCriteria{nGroup(name) required},
+    SchoolCycle{nGroup} to NGroup{schoolCycle(name) required},
+    Teacher{nGroup} to NGroup{teacher(tuition) required},
+    NClass{nGroup} to NGroup{nClass(name) required},
+    Room{nGroup} to NGroup{room(name) required},
+    Modality{nGroup} to NGroup{modality(name) required},
+    Student{groupStudent} to GroupStudent{student(tuition) required},
+    NGroup{groupStudent} to GroupStudent{nGroup(name) required},
+    TypeAttendance{attendance} to Attendance{typeAttendance(name) required},
+    GroupStudent{attendance} to Attendance{groupStudent required},
+    GroupStudent{studentEvaluation} to StudentEvaluation{groupStudent required},
+    Status{studentEvaluation} to StudentEvaluation{status},
+    EvaluationCriteria{studentEvaluation} to StudentEvaluation{evaluationCriteria required}
+}
+
+relationship ManyToOne {
+    Student{user(login) required} to User,
+    Teacher{user(login) required} to User
+}
+
+paginate Generation with pagination
+paginate Student with pagination
+paginate NClass with pagination
+paginate PerformanceIndicator with pagination
+paginate EvaluationCriteria with pagination
+paginate Teacher with pagination
+paginate Room with pagination
+paginate NGroup with pagination
+paginate TypeAttendance with pagination
+paginate Modality with pagination
+paginate Status with pagination
+paginate GroupStudent with pagination
+paginate Attendance with pagination
+paginate Career with pagination
+paginate StudentEvaluation with pagination
+paginate SchoolCycle with pagination
+
+service * with serviceClass

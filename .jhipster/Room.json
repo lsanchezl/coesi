@@ -1,0 +1,39 @@
+{
+  "name": "Room",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "nGroup",
+      "otherEntityRelationshipName": "room",
+      "relationshipName": "nGroup"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityRelationshipName": "room",
+      "relationshipValidateRules": "required",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220558",
+  "entityTableName": "room",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

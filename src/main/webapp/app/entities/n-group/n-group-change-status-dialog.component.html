@@ -1,0 +1,26 @@
+<form *ngIf="nGroup" name="changeStatusForm" (ngSubmit)="confirmChangeStatus()">
+    <div class="modal-header">
+        <h4 class="modal-title" jhiTranslate="coesiApp.nGroup.changeStatus.title">Confirm change status</h4>
+
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="cancel()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <p id="jhi-delete-nGroup-heading" jhiTranslate="coesiApp.nGroup.changeStatus.message" 
+           [translateValues]="{ currentStatus: currentStatusGroupLabel, newStatus: newStatusGroupLabel }">Are you sure you want to change the status?
+        </p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button id="jhi-confirm-delete-nGroup" type="submit" class="btn btn-primary">
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

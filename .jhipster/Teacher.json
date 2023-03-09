@@ -1,0 +1,47 @@
+{
+  "name": "Teacher",
+  "fields": [
+    {
+      "fieldName": "tuition",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "nGroup",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipName": "nGroup"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipValidateRules": "required",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityRelationshipName": "teacher",
+      "relationshipValidateRules": "required",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220458",
+  "entityTableName": "teacher",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

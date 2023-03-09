@@ -1,0 +1,25 @@
+{
+    "coesiApp": {
+        "studentEvaluation": {
+            "home": {
+                "title": "Calificaciones",
+                "createLabel": "Crear nueva evaluación",
+                "createOrEditLabel": "Crear o editar evaluación",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó una nueva evaluación con identificador {{ param }}.",
+            "updated": "Se guardaron correctamente las calificaciones.",
+            "deleted": "Se borró la evaluación con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar la evaluación {{ id }}?"
+            },
+            "detail": {
+                "title": "Evaluaciones"
+            },
+            "score": "Calificación",
+            "groupStudent": "Alumno",
+            "status": "Estatus",
+            "evaluationCriteria": "Criterio de evaluación"
+        }
+    }
+}

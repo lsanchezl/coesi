@@ -1,0 +1,27 @@
+{
+    "coesiApp": {
+        "student": {
+            "home": {
+                "title": "Catálogo de alumnos",
+                "createLabel": "Crear nuevo alumno",
+                "createOrEditLabel": "Crear o editar alumno",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo alumno con identificador {{ param }}.",
+            "updated": "Se actualizó el alumno con identificador {{ param }}.",
+            "deleted": "Se borró el alumno con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el alumno {{ id }}?"
+            },
+            "detail": {
+                "title": "Alumno"
+            },
+            "tuition": "Matrícula",
+            "graduationSermon": "Sermón de graduación",
+            "groupStudent": "Alumno",
+            "name": "Nombre",
+            "generation": "Generación",
+            "career": "Carrera"
+        }
+    }
+}

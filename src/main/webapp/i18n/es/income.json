@@ -1,0 +1,30 @@
+{
+    "coesiApp": {
+        "income": {
+            "home": {
+                "title": "Ingresos",
+                "createLabel": "Crear nuevo ingreso",
+                "createOrEditLabel": "Crear o editar ingreso",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo ingreso con identificador {{ param }}.",
+            "updated": "Se actualizó el ingreso con identificador {{ param }}.",
+            "deleted": "Se borró el ingreso con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el ingreso {{ id }}?"
+            },
+            "detail": {
+                "title": "Ingreso"
+            },
+            "amount": "Monto",
+            "comments": "Comentarios",
+            "applicationDate": "Fecha de aplicación",
+            "creationDate": "Fecha de creación",
+            "modificationDate": "Fecha de modificación",
+            "user": "Usuario",
+            "creationUser": "Usuario creación",
+            "modificationUser": "Usuario modificación",
+            "conceptIncome": "Concepto"
+        }
+    }
+}

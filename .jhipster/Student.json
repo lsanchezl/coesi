@@ -1,0 +1,67 @@
+{
+  "name": "Student",
+  "fields": [
+    {
+      "fieldName": "tuition",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "graduationSermon",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "groupStudent",
+      "otherEntityRelationshipName": "student",
+      "relationshipName": "groupStudent"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "student",
+      "relationshipValidateRules": "required",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityRelationshipName": "student",
+      "relationshipValidateRules": "required",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "generation",
+      "otherEntityRelationshipName": "student",
+      "relationshipValidateRules": "required",
+      "relationshipName": "generation",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "career",
+      "otherEntityRelationshipName": "student",
+      "relationshipValidateRules": "required",
+      "relationshipName": "career",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220058",
+  "entityTableName": "student",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

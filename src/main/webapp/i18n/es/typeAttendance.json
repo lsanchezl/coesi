@@ -1,0 +1,24 @@
+{
+    "coesiApp": {
+        "typeAttendance": {
+            "home": {
+                "title": "Catálogo de tipos de asistencia",
+                "createLabel": "Crear nuevo tipo de asistencia",
+                "createOrEditLabel": "Crear o editar tipo de asistencia",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo tipo de asistencia con identificador {{ param }}.",
+            "updated": "Se actualizó el tipo de asistencia con identificador {{ param }}.",
+            "deleted": "Se borró el tipo de asistencia con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el tipo de asistencia {{ id }}?"
+            },
+            "detail": {
+                "title": "Tipo de asistencia"
+            },
+            "name": "Nombre",
+            "description": "Descripción",
+            "attendance": "Asistencia"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "SchoolCycle",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "nGroup",
+      "otherEntityRelationshipName": "schoolCycle",
+      "relationshipName": "nGroup"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityRelationshipName": "schoolCycle",
+      "relationshipValidateRules": "required",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210204195426",
+  "entityTableName": "school_cycle",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

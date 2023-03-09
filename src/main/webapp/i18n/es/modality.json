@@ -1,0 +1,24 @@
+{
+    "coesiApp": {
+        "modality": {
+            "home": {
+                "title": "Catálogo de modalidades",
+                "createLabel": "Crear nueva modalidad",
+                "createOrEditLabel": "Crear o editar modalidad",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó una nueva modalidad con identificador {{ param }}.",
+            "updated": "Se actualizó la modalidad con identificador {{ param }}.",
+            "deleted": "Se borró la modalidad con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar la modalidad {{ id }}?"
+            },
+            "detail": {
+                "title": "Modalidad"
+            },
+            "name": "Nombre",
+            "description": "Descripción",
+            "nGroup": "Grupo"
+        }
+    }
+}

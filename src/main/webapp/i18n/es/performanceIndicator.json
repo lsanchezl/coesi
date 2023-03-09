@@ -1,0 +1,23 @@
+{
+    "coesiApp": {
+        "performanceIndicator": {
+            "home": {
+                "title": "Catálogo de indicadores de desempeño",
+                "createLabel": "Crear nuevo indicador de desempeño",
+                "createOrEditLabel": "Crear o editar indicador de desempeño",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo indicador de desempeño con identificador {{ param }}.",
+            "updated": "Se actualizó el indicador de desempeño con identificador {{ param }}.",
+            "deleted": "Se borró el indicador de desempeño con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el indicador de desempeño {{ id }}?"
+            },
+            "detail": {
+                "title": "Indicador de desempeño"
+            },
+            "name": "Nombre",
+            "evaluationCriteria": "Criterio de evaluación"
+        }
+    }
+}

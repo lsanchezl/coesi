@@ -1,0 +1,29 @@
+{
+    "coesiApp": {
+        "nClass": {
+            "home": {
+                "title": "Lista de materias",
+                "createLabel": "Crear nueva materia",
+                "createOrEditLabel": "Crear o editar materia",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo materia con identificador {{ param }}.",
+            "updated": "Se actualizó la materia con identificador {{ param }}.",
+            "deleted": "Se borró la materia con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar la materia {{ id }}?"
+            },
+            "detail": {
+                "title": "Materia"
+            },
+            "name": "Nombre",
+            "keyClass": "Clave de materia",
+            "area": "Área",
+            "division": "División",
+            "units": "Unidades",
+            "nOrder": "Orden",
+            "nGroup": "Grupo",
+            "career": "Carrera"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "coesiApp": {
+        "status": {
+            "home": {
+                "title": "Catálogo de estatus",
+                "createLabel": "Crear nuevo estatus",
+                "createOrEditLabel": "Crear o editar estatus",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo estatus con identificador {{ param }}.",
+            "updated": "Se actualizó el estatus con identificador {{ param }}.",
+            "deleted": "Se borró el estatus con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el estatus {{ id }}?"
+            },
+            "detail": {
+                "title": "Estatus"
+            },
+            "name": "Nombre",
+            "description": "Descripción",
+            "studentEvaluation": "Evaluación"
+        }
+    }
+}

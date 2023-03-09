@@ -1,0 +1,27 @@
+{
+    "coesiApp": {
+        "evaluationCriteria": {
+            "home": {
+                "title": "Criterios de evaluación",
+                "createLabel": "Crear nuevo criterio de evaluación",
+                "createOrEditLabel": "Crear o editar criterio de evaluación",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo criterio de evaluación con identificador {{ param }}.",
+            "updated": "Se actualizó el criterio de evaluación con identificador {{ param }}.",
+            "deleted": "Se borró el criterio de evaluación con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el criterio de evaluación {{ id }}?"
+            },
+            "detail": {
+                "title": "Criterio de evaluación"
+            },
+            "description": "Descripción",
+            "percentage": "Porcentaje",
+            "deliveryDate": "Fecha de entrega",
+            "studentEvaluation": "Evaluación",
+            "performanceIndicator": "Indicador de desempeño",
+            "nGroup": "Grupo"
+        }
+    }
+}

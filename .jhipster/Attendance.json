@@ -1,0 +1,33 @@
+{
+  "name": "Attendance",
+  "fields": [],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "typeAttendance",
+      "otherEntityRelationshipName": "attendance",
+      "relationshipValidateRules": "required",
+      "relationshipName": "typeAttendance",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "groupStudent",
+      "otherEntityRelationshipName": "attendance",
+      "relationshipValidateRules": "required",
+      "relationshipName": "groupStudent",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210202221158",
+  "entityTableName": "attendance",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

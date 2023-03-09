@@ -1,0 +1,38 @@
+{
+    "coesiApp": {
+        "nGroup": {
+            "home": {
+                "title": "Catálogo de grupos",
+                "evaluationCriteria": "Criterios de evaluación",
+                "students": "Alumnos",
+                "createLabel": "Crear nuevo grupo",
+                "createOrEditLabel": "Crear o editar grupo",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó un nuevo grupo con identificador {{ param }}.",
+            "updated": "Se actualizó el grupo con identificador {{ param }}.",
+            "deleted": "Se borró el grupo con identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar el grupo {{ id }}?"
+            },
+            "changeStatus": {
+                "title": "Confirmar cambio de estatus",
+                "message": "El estatus del grupo cambiará de {{ currentStatus }} a {{ newStatus }}."
+            },
+            "detail": {
+                "title": "Grupo"
+            },
+            "name": "Nombre",
+            "startDate": "Fecha inicio",
+            "endDate": "Fecha fin",
+            "statusGroup": "Estatus",
+            "groupStudent": "Alumno",
+            "schoolCycle": "Ciclo escolar",
+            "teacher": "Maestro",
+            "nClass": "Materia",
+            "evaluationCriteria": "Criterio de evaluación",
+            "room": "Aula",
+            "modality": "Modalidad"
+        }
+    }
+}

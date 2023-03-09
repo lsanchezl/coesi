@@ -1,0 +1,27 @@
+{
+  "coesiApp": {
+    "evaluationCriteria": {
+      "home": {
+        "title": "Evaluation Criteria",
+        "createLabel": "Create a new Evaluation Criteria",
+        "createOrEditLabel": "Create or edit a Evaluation Criteria",
+        "notFound": "No Evaluation Criteria found"
+      },
+      "created": "A new Evaluation Criteria is created with identifier {{ param }}.",
+      "updated": "A Evaluation Criteria is updated with identifier {{ param }}.",
+      "deleted": "A Evaluation Criteria is deleted with identifier {{ param }}.",
+      "delete": {
+        "question": "Are you sure you want to delete Evaluation Criteria {{ id }}?"
+      },
+      "detail": {
+        "title": "Evaluation Criteria"
+      },
+      "description": "Description",
+      "percentage": "Percentage",
+      "deliveryDate": "Delivery Date",
+      "studentEvaluation": "Student Evaluation",
+      "performanceIndicator": "Performance Indicator",
+      "nGroup": "N Group"
+    }
+  }
+}

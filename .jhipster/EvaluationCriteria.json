@@ -1,0 +1,60 @@
+{
+  "name": "EvaluationCriteria",
+  "fields": [
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "percentage",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "deliveryDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "studentEvaluation",
+      "otherEntityRelationshipName": "evaluationCriteria",
+      "relationshipName": "studentEvaluation"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "performanceIndicator",
+      "otherEntityRelationshipName": "evaluationCriteria",
+      "relationshipValidateRules": "required",
+      "relationshipName": "performanceIndicator",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "nGroup",
+      "otherEntityRelationshipName": "evaluationCriteria",
+      "relationshipValidateRules": "required",
+      "relationshipName": "nGroup",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220358",
+  "entityTableName": "evaluation_criteria",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,29 @@
+{
+  "coesiApp": {
+    "nClass": {
+      "home": {
+        "title": "Classes",
+        "createLabel": "Create a new N Class",
+        "createOrEditLabel": "Create or edit a N Class",
+        "notFound": "No N Classes found"
+      },
+      "created": "A new N Class is created with identifier {{ param }}.",
+      "updated": "A N Class is updated with identifier {{ param }}.",
+      "deleted": "A N Class is deleted with identifier {{ param }}.",
+      "delete": {
+        "question": "Are you sure you want to delete N Class {{ id }}?"
+      },
+      "detail": {
+        "title": "N Class"
+      },
+      "name": "Name",
+      "keyClass": "Key Class",
+      "area": "Area",
+      "division": "Division",
+      "units": "Units",
+      "nOrder": "N Order",
+      "nGroup": "N Group",
+      "career": "Career"
+    }
+  }
+}

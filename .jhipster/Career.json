@@ -1,0 +1,45 @@
+{
+  "name": "Career",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "nClass",
+      "otherEntityRelationshipName": "career",
+      "relationshipName": "nClass"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "career",
+      "relationshipName": "student"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityRelationshipName": "career",
+      "relationshipValidateRules": "required",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202221258",
+  "entityTableName": "career",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

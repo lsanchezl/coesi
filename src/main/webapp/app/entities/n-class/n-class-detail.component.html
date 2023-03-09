@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nClass">
+            <h2><span jhiTranslate="coesiApp.nClass.detail.title">N Class</span> {{ nClass.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="coesiApp.nClass.name">Name</span></dt>
+                <dd>
+                    <span>{{ nClass.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="coesiApp.nClass.keyClass">Key Class</span></dt>
+                <dd>
+                    <span>{{ nClass.keyClass }}</span>
+                </dd>
+                <dt><span jhiTranslate="coesiApp.nClass.area">Area</span></dt>
+                <dd>
+                    <span>{{ nClass.area }}</span>
+                </dd>
+                <dt><span jhiTranslate="coesiApp.nClass.division">Division</span></dt>
+                <dd>
+                    <span>{{ nClass.division }}</span>
+                </dd>
+                <dt><span jhiTranslate="coesiApp.nClass.units">Units</span></dt>
+                <dd>
+                    <span>{{ nClass.units }}</span>
+                </dd>
+                <dt><span jhiTranslate="coesiApp.nClass.nOrder">N Order</span></dt>
+                <dd>
+                    <span>{{ nClass.nOrder }}</span>
+                </dd>
+                <dt><span jhiTranslate="coesiApp.nClass.career">Career</span></dt>
+                <dd>
+                    <span>
+                        {{ nClass.career?.name }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/n-class', nClass.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

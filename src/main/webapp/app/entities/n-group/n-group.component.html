@@ -1,0 +1,136 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.nGroup.home.title">N Groups</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-n-group" 
+                [routerLink]="['/n-group/new']"
+                [disabled]="!combosLoaded"
+                *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coesiApp.nGroup.home.createLabel">
+                Create a new N Group
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="nGroups?.length === 0">
+        <span jhiTranslate="coesiApp.nGroup.home.notFound">No nGroups found</span>
+    </div>
+    <div class="table-responsive" id="filters">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th><span jhiTranslate="coesiApp.nClass.career">Career</span></th>
+                    <th><span jhiTranslate="coesiApp.nGroup.schoolCycle">School cycle</span></th>
+                    <th><span jhiTranslate="coesiApp.nGroup.room">Room</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select class="form-control" id="field_career" name="career" 
+                                [ngModel]="selectedCareer" (ngModelChange)="changeCareer($event)" >
+                            <option [ngValue]="allCareersOption">{{allCareersOption.name}}</option>
+                            <option [ngValue]="careerOption" 
+                                    *ngFor="let careerOption of careers; trackBy: trackById">{{ careerOption.name }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control" id="field_schoolCycle" name="schoolCycle"
+                                [ngModel]="selectedSchoolCycle" (ngModelChange)="changeSchoolCycle($event)" >
+                            <option [ngValue]="allSchoolCyclesOption">{{allSchoolCyclesOption.name}}</option>
+                            <option  [ngValue]="schoolCycleOption"
+                                     *ngFor="let schoolCycleOption of schoolcycles; trackBy: trackById">{{ schoolCycleOption.name }}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class="form-control" id="field_room" name="room"
+                                [ngModel]="selectedRoom" (ngModelChange)="changeRoom($event)" >
+                            <option [ngValue]="allRoomsOption">{{allRoomsOption.name}}</option>
+                            <option [ngValue]="roomOption"
+                                    *ngFor="let roomOption of rooms; trackBy: trackById">{{ roomOption.name }}</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="nGroups && nGroups.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="name"><span jhiTranslate="coesiApp.nGroup.name">Name</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="startDate"><span jhiTranslate="coesiApp.nGroup.startDate">Start Date</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="endDate"><span jhiTranslate="coesiApp.nGroup.endDate">End Date</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="schoolCycle.name"><span jhiTranslate="coesiApp.nGroup.schoolCycle">School Cycle</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="teacher.user.lastName"><span jhiTranslate="coesiApp.nGroup.teacher">Teacher</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="nClass.name"><span jhiTranslate="coesiApp.nGroup.nClass">N Class</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="room.name"><span jhiTranslate="coesiApp.nGroup.room">Room</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="modality.name"><span jhiTranslate="coesiApp.nGroup.modality">Modality</span> <fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"  jhiSortBy="statusGroup.keyStatus"><span jhiTranslate="coesiApp.nGroup.statusGroup">Status</span><fa-icon icon="sort"></fa-icon></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let nGroup of nGroups ;trackBy: trackId">
+                    <td>{{ nGroup.name }}</td>
+                    <td>{{ nGroup.startDate | date:'mediumDate' }}</td>
+                    <td>{{ nGroup.endDate | date:'mediumDate' }}</td>
+                    <td>{{ nGroup.schoolCycle?.name }}</td>
+                    <td>
+                        <span *ngIf="nGroup.teacher && nGroup.teacher.user">
+                            {{ nGroup.teacher.user.lastName }} {{ nGroup.teacher.user.firstName }}
+                        </span>
+                    </td>
+                    <td>{{ nGroup.nClass?.name }}</td>
+                    <td>{{ nGroup.room?.name }}</td>
+                    <td>{{ nGroup.modality?.name }}</td>
+                    <td>
+                        <span jhiTranslate="coesiApp.statusGroup.{{ nGroup.statusGroup?.keyStatus }}">Status group
+                                </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/group-student/role-student/n-group/', nGroup.id]"
+                                    class="btn btn-primary btn-sm"
+                                    *jhiHasAnyAuthority="['ROLE_STUDENT']">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+                            <button type="submit"
+                                    [routerLink]="['/n-group', nGroup.id, 'view']"
+                                    class="btn btn-info btn-sm"
+                                    *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY', 'ROLE_TEACHER']">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(nGroup)"
+                                    class="btn btn-danger btn-sm"
+                                    *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY']">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="nGroups && nGroups.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
+    </div>
+</div>

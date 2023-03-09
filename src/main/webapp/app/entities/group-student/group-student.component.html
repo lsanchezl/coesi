@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.groupStudent.home.title">Group Students</span>
+
+        <button id="jh-create-entity" class="btn btn-info float-right jh-create-entity create-group-student"
+                [routerLink]="['/student-evaluation/n-group', nGroupId]"
+                *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY','ROLE_TEACHER']">
+            <fa-icon icon="gavel"></fa-icon>
+            <span  jhiTranslate="coesiApp.groupStudent.home.scores">
+                Calificaciones
+            </span>
+        </button>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-group-student"
+                [routerLink]="['/attendance/n-group', nGroupId]"
+                *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY','ROLE_TEACHER']">
+            <fa-icon icon="calendar-alt"></fa-icon>
+            <span  jhiTranslate="coesiApp.groupStudent.home.registerAttendances">
+                Registrar asitencias
+            </span>
+        </button>
+        <button id="jh-create-entity" class="btn btn-info float-right jh-create-entity create-group-student"
+                [routerLink]="['/group-student/n-group', nGroupId, 'new']"
+                *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY']">
+            <fa-icon icon="graduation-cap"></fa-icon>
+            <span  jhiTranslate="coesiApp.groupStudent.home.createLabel">
+                Agregar estudiante
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="groupStudents?.length === 0">
+        <span jhiTranslate="coesiApp.groupStudent.home.notFound">No groupStudents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="groupStudents && groupStudents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col"><span jhiTranslate="coesiApp.groupStudent.name">Student</span></th>
+                    <th scope="col"><span jhiTranslate="coesiApp.groupStudent.nGroup">N Group</span></th>
+                    <th scope="col" style="text-align: center"><span jhiTranslate="coesiApp.groupStudent.opportunity1">Opportunity 1</span></th>
+                    <th scope="col" style="text-align: center"><span jhiTranslate="coesiApp.groupStudent.opportunity2">Opportunity 2</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let groupStudent of groupStudents ;trackBy: trackId; let idxRow=index;">
+                    <td>{{ groupStudent?.student?.user?.lastName }} {{ groupStudent?.student?.user?.firstName }}</td>
+                    <td>{{ groupStudent?.nGroup?.name }}</td>
+                    <td style="text-align: center">{{ groupStudent.opportunity1 }}</td>
+                    <td style="text-align: center">
+                            <input type="number" class="form-control" *ngIf="editOpportunity2" 
+                                   [(ngModel)]="groupStudent.opportunity2" name="opportunity{{idxRow}}"
+                                   (blur)="onBlurScore(groupStudent)" (focus)="onFocusScore(groupStudent)"
+                                   min="0" max="100"/>
+                            <span *ngIf="editOpportunity2 == false">
+                                {{ groupStudent.opportunity2 }}
+                            </span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <button type="submit" (click)="delete(groupStudent)"
+                                    class="btn btn-danger btn-sm"
+                                    *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY']">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

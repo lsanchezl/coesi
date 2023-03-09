@@ -1,0 +1,24 @@
+{
+    "coesiApp": {
+        "attendance": {
+            "home": {
+                "title": "Lista de asistencia",
+                "createLabel": "Crear nueva asistencia",
+                "createOrEditLabel": "Agregar día",
+                "notFound": "No se encontraron registros."
+            },
+            "created": "Se creó una nueva asistencia con identificador {{ param }}.",
+            "updated": "Se actualizó la asistencia con identificador {{ param }}.",
+            "deleted": "Se borró la asistencia identificador {{ param }}.",
+            "delete": {
+                "question": "¿Seguro que quieres eliminar la asistencia {{ id }}?"
+            },
+            "detail": {
+                "title": "Asistencia"
+            },
+            "typeAttendance": "Tipo de asistencia",
+            "groupStudent": "Alumno",
+            "dateAttendance": "Fecha"
+        }
+    }
+}

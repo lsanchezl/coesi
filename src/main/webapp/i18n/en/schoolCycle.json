@@ -1,0 +1,23 @@
+{
+  "coesiApp": {
+    "schoolCycle": {
+      "home": {
+        "title": "School Cycles",
+        "createLabel": "Create a new School Cycle",
+        "createOrEditLabel": "Create or edit a School Cycle",
+        "notFound": "No School Cycles found"
+      },
+      "created": "A new School Cycle is created with identifier {{ param }}.",
+      "updated": "A School Cycle is updated with identifier {{ param }}.",
+      "deleted": "A School Cycle is deleted with identifier {{ param }}.",
+      "delete": {
+        "question": "Are you sure you want to delete School Cycle {{ id }}?"
+      },
+      "detail": {
+        "title": "School Cycle"
+      },
+      "name": "Name",
+      "nGroup": "N Group"
+    }
+  }
+}

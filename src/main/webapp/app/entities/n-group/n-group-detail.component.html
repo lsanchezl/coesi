@@ -1,0 +1,98 @@
+<div class="row">
+    <div style="width: 100%">
+        <div *ngIf="nGroup">
+            <h2><span jhiTranslate="coesiApp.nGroup.detail.title">N Group</span> {{ nGroup.name }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <div class="table-responsive" id="entities">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th><span jhiTranslate="coesiApp.nGroup.name">Name</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.startDate">Start Date</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.endDate">End Date</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.schoolCycle">School Cycle</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.teacher">Teacher</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.nClass">N Class</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.room">Room</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.modality">Modality</span></th>
+                            <th><span jhiTranslate="coesiApp.nGroup.statusGroup">Status</span></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ nGroup.name }}</td>
+                            <td>{{ nGroup.startDate | date:'mediumDate' }}</td>
+                            <td>{{ nGroup.endDate | date:'mediumDate' }}</td>
+                            <td>{{ nGroup.schoolCycle?.name }}</td>
+                            <td>{{ nGroup.teacher?.user?.lastName }} {{ nGroup.teacher?.user?.firstName }}</td>
+                            <td>{{ nGroup.nClass?.name }}</td>
+                            <td>{{ nGroup.room?.name }}</td>
+                            <td>{{ nGroup.modality?.name }}</td>
+                            <td>
+                                <span jhiTranslate="coesiApp.statusGroup.{{ nGroup.statusGroup?.keyStatus }}">Status group
+                                </span>
+                                <br/>
+                                <button *ngIf="nGroup.previousStatusGroup"
+                                        type="submit"
+                                        (click)="changeStatus(true)"
+                                        class="btn btn-success btn-sm">
+                                    <fa-icon icon="arrow-left"></fa-icon>&nbsp;
+                                    <span jhiTranslate="coesiApp.statusGroup.{{ nGroup.previousStatusGroup?.keyStatus }}">Status group
+                                    </span>
+                                </button>
+                                <button *ngIf="nGroup.nextStatusGroup"
+                                        type="submit"
+                                        (click)="changeStatus(false)"
+                                        class="btn btn-success btn-sm">
+                                    <fa-icon icon="arrow-right"></fa-icon>&nbsp;
+                                    <span jhiTranslate="coesiApp.statusGroup.{{ nGroup.nextStatusGroup?.keyStatus }}">Status group
+                                    </span>
+                                </button>
+                            </td>
+                            <td class="text-right">
+                                <div class="btn-group">
+                                    <button type="submit"
+                                            [routerLink]="['/group-student/n-group', nGroup.id]"
+                                            class="btn btn-primary btn-sm"
+                                            *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY', 'ROLE_TEACHER']">
+                                        <fa-icon icon="graduation-cap"></fa-icon>
+                                        <span class="d-none d-md-inline" jhiTranslate="coesiApp.nGroup.home.students">Students</span>
+                                    </button>
+                                </div>
+                            </td>
+                            <td class="text-right">
+                                <div class="btn-group">
+                                    <button type="button"
+                                            [routerLink]="['/n-group', nGroup.id, 'edit']"
+                                            *jhiHasAnyAuthority="['ROLE_PRINCIPAL', 'ROLE_SECRETARY']"
+                                            class="btn btn-primary btn-sm">
+                                        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <br/>
+            <br/>
+
+            <jhi-evaluation-criteria></jhi-evaluation-criteria>
+
+            <br/>
+            <br/>
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+        </div>
+    </div>
+</div>

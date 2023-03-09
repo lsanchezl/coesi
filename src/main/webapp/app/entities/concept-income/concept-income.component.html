@@ -1,0 +1,63 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.conceptIncome.home.title">Concept Incomes</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-concept-income" [routerLink]="['/concept-income/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coesiApp.conceptIncome.home.createLabel">
+            Create a new Concept Income
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="conceptIncomes?.length === 0">
+        <span jhiTranslate="coesiApp.conceptIncome.home.notFound">No conceptIncomes found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="conceptIncomes && conceptIncomes.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.conceptIncome.name">Name</span></th>
+                    <th scope="col" ><span jhiTranslate="coesiApp.conceptIncome.keyConcept">Key Concept</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let conceptIncome of conceptIncomes ;trackBy: trackId">
+                    <td><a [routerLink]="['/concept-income', conceptIncome.id, 'view']">{{ conceptIncome.id }}</a></td>
+                    <td>{{ conceptIncome.name }}</td>
+                    <td>{{ conceptIncome.keyConcept }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/concept-income', conceptIncome.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/concept-income', conceptIncome.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(conceptIncome)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

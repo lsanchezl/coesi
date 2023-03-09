@@ -1,0 +1,49 @@
+<form name="updateForm" (ngSubmit)="updateScores()">
+    <div>
+        <h2 id="page-heading">
+            <span jhiTranslate="coesiApp.studentEvaluation.home.title">Student Evaluations</span>
+
+            <button id="jh-save-matrix" class="btn btn-primary float-right" type="submit" [disabled]="isSaving" [hidden]="!isEditable">
+                <fa-icon icon="save"></fa-icon>
+                <span  jhiTranslate="entity.action.save">
+                    Save
+                </span>
+            </button>
+        </h2>
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+        <div class="table-responsive" id="entities" *ngIf="matrix">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th *ngFor="let header of matrix[2]; let idxHeader = index">
+                            <span *ngIf="idxHeader > 0">
+                                {{header}}
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let rowData of matrix | slice: 3; let idxRow=index;">
+                        <td *ngFor="let columnData of rowData; let idxColumn=index;trackBy:trackByIndex;">
+                            <span *ngIf="idxColumn === 1">
+                                {{columnData}}
+                            </span>
+                            <span *ngIf="(idxColumn > 1) && (idxColumn < rowData.length - 1)" [hidden]="isEditable">
+                                {{columnData}}
+                            </span>
+                            <input type="number" class="form-control" *ngIf="(idxColumn > 1) && (idxColumn < rowData.length - 1)" 
+                                   [(ngModel)]="matrix[idxRow + 3][idxColumn]" name="score{{idxRow}}{{idxColumn}}"
+                                   (ngModelChange)="onScoreChange(idxRow + 3)" min="0" max="100" [hidden]="!isEditable"/>
+                            <span *ngIf="idxColumn === matrix[idxRow].length - 1">
+                                {{columnData}}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

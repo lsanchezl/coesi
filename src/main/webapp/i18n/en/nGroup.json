@@ -1,0 +1,38 @@
+{
+    "coesiApp": {
+        "nGroup": {
+            "home": {
+                "title": "N Groups",
+                "evaluationCriteria": "Evaluation Criteria",
+                "students": "Students",
+                "createLabel": "Create a new N Group",
+                "createOrEditLabel": "Create or edit a N Group",
+                "notFound": "No N Groups found"
+            },
+            "created": "A new N Group is created with identifier {{ param }}.",
+            "updated": "A N Group is updated with identifier {{ param }}.",
+            "deleted": "A N Group is deleted with identifier {{ param }}.",
+            "delete": {
+                "question": "Are you sure you want to delete N Group {{ id }}?"
+            },
+            "changeStatus": {
+                "title": "Confirm change status",
+                "message": "The status of the group will change from {{ currentStatus }} to {{ newStatus }}."
+            },
+            "detail": {
+                "title": "N Group"
+            },
+            "name": "Name",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "statusGroup": "Status",
+            "groupStudent": "Group Student",
+            "schoolCycle": "School Cycle",
+            "teacher": "Teacher",
+            "nClass": "N Class",
+            "evaluationCriteria": "Evaluation Criteria",
+            "room": "Room",
+            "modality": "Modality"
+        }
+    }
+}

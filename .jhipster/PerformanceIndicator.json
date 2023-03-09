@@ -1,0 +1,39 @@
+{
+  "name": "PerformanceIndicator",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "evaluationCriteria",
+      "otherEntityRelationshipName": "performanceIndicator",
+      "relationshipName": "evaluationCriteria"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityRelationshipName": "performanceIndicator",
+      "relationshipValidateRules": "required",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20210202220258",
+  "entityTableName": "performance_indicator",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

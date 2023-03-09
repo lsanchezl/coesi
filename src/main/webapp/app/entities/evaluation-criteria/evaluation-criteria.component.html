@@ -1,0 +1,59 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="coesiApp.evaluationCriteria.home.title">Evaluation Criteria</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-evaluation-criteria" 
+                [routerLink]="['/evaluation-criteria/n-group', nGroupId ,'new']" [hidden]="!isEditable">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="coesiApp.evaluationCriteria.home.createLabel">
+                Create a new Evaluation Criteria
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="evaluationCriteria?.length === 0">
+        <span jhiTranslate="coesiApp.evaluationCriteria.home.notFound">No evaluationCriteria found</span>
+    </div>
+
+    <div class="table-responsive" *ngIf="evaluationCriteria && evaluationCriteria.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col"><span jhiTranslate="coesiApp.evaluationCriteria.description">Description</span></th>
+                    <th scope="col"><span jhiTranslate="coesiApp.evaluationCriteria.percentage">Percentage</span></th>
+                    <th scope="col"><span jhiTranslate="coesiApp.evaluationCriteria.deliveryDate">Delivery Date</span></th>
+                    <th scope="col"><span jhiTranslate="coesiApp.evaluationCriteria.performanceIndicator">Performance Indicator</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let evaluationCriteria of evaluationCriteria ;trackBy: trackId">
+                    <td>{{ evaluationCriteria.description }}</td>
+                    <td style="text-align: center">{{ evaluationCriteria.percentage }}%</td>
+                    <td style="text-align: center">{{ evaluationCriteria.deliveryDate | date:'mediumDate' }}</td>
+                    <td>{{ evaluationCriteria.performanceIndicator?.name }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit" [hidden]="!isEditable"
+                                    [routerLink]="['/evaluation-criteria', evaluationCriteria.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(evaluationCriteria)"
+                                    class="btn btn-danger btn-sm" [hidden]="!isEditable">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
